@@ -1,0 +1,55 @@
+<!doctype html>
+<!-- PROTOTYPE - NOT FOR PRODUCTION -->
+<!-- Question: Một game bắn súng góc nhìn thứ nhất sinh tồn (battle royale) chơi trên web có vui không? -->
+<!-- Date: 2026-11-26 -->
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#0b0e16">
+<title>Đảo Sinh Tồn</title>
+<style>
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #0b0e16; }
+  body { user-select: none; -webkit-user-select: none; touch-action: none; -webkit-tap-highlight-color: transparent; }
+  canvas { display: block; position: fixed; left: 0; top: 0; }
+  #hud { pointer-events: none; }
+  #touch { display: none; position: fixed; inset: 0; pointer-events: none;
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+  #stickzone { position: absolute; left: 0; bottom: 0; width: 40%; height: 65%; pointer-events: auto; }
+  #lookzone { position: absolute; right: 0; top: 0; width: 60%; height: 100%; pointer-events: auto; }
+  #stickbase { display: none; position: absolute; width: 120px; height: 120px; border-radius: 50%;
+    background: rgba(255,255,255,0.12); border: 2px solid rgba(255,255,255,0.35); }
+  #knob { position: absolute; left: 35px; top: 35px; width: 50px; height: 50px; border-radius: 50%;
+    background: rgba(255,255,255,0.55); }
+  .b { position: absolute; width: 58px; height: 58px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    background: rgba(10,12,18,0.55); color: #fff; font-weight: bold; font-size: 12px; border: 2px solid rgba(255,255,255,0.4); pointer-events: auto; }
+  .b.on { background: rgba(255,210,58,0.85); color: #000; }
+  #fire { width: 84px; height: 84px; right: 24px; bottom: 30px; background: rgba(214,48,49,0.6); font-size: 14px; }
+  #fire2 { left: 18px; top: 40%; background: rgba(214,48,49,0.6); }
+</style>
+</head>
+<body>
+<canvas id="gl"></canvas>
+<canvas id="hud"></canvas>
+<div id="touch">
+  <div id="lookzone"></div>
+  <div id="stickzone"><div id="stickbase"><div id="knob"></div></div></div>
+  <div class="b" id="fire" data-code="Mouse0">BẮN</div>
+  <div class="b" id="fire2" data-code="Mouse0">BẮN</div>
+  <div class="b" style="right:120px;bottom:24px" data-code="TouchAim">NGẮM</div>
+  <div class="b" style="right:118px;bottom:96px" data-code="Space">NHẢY</div>
+  <div class="b" style="right:40px;bottom:128px" data-code="KeyR">NẠP</div>
+  <div class="b" style="right:182px;bottom:60px" data-code="KeyC">NGỒI</div>
+  <div class="b" style="right:24px;top:240px" data-code="KeyX">ĐỔI</div>
+  <div class="b" style="right:24px;top:180px" data-code="KeyQ">BĂNG</div>
+  <div class="b" style="left:50%;margin-left:-29px;top:46%" data-code="KeyE">NHẶT</div>
+  <div class="b" style="left:12px;top:12px;width:48px;height:48px" data-code="KeyP">II</div>
+  <div class="b" style="left:12px;top:70px;width:48px;height:48px" data-code="KeyM">MAP</div>
+</div>
+<script src="vendor/three.js"></script>
+<script src="config.js"></script>
+<script src="core.js"></script>
+<script src="world.js"></script>
+<script src="game.js"></script>
+</body>
+</html>

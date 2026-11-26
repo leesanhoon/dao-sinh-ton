@@ -1,0 +1,7 @@
+- path: vendor/three.js
+  origin: licensed
+  source: {product: three.js, version: "0.186.1", url: https://threejs.org}
+  licence: {id: MIT}
+  tool: "esbuild 0.28.2, one plain script for play from a file"
+  date: 2026-11-26
+  ships: true
